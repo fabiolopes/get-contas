@@ -9,6 +9,8 @@ import { NovaContaComponent } from './nova-conta/nova-conta.component';
 import { Configuration } from './ap.constants';
 import { SimNaoPipe } from './sim-nao.pipe';
 import { NovoItemComponent } from './novo-item/novo-item.component';
+import { ModalModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,11 +18,13 @@ import { NovoItemComponent } from './novo-item/novo-item.component';
     AppComponent,
     NovaContaComponent,
     SimNaoPipe,
-    NovoItemComponent
+    NovoItemComponent,
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    ModalModule.forRoot(),
+    FormsModule
   ],
   providers: [ContaService, Configuration],
   bootstrap: [AppComponent]
