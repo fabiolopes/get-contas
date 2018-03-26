@@ -1,0 +1,44 @@
+<h3>Veja suas contas</h3>
+<div>
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="contas">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="origem">
+        <mat-header-cell *matHeaderCellDef> Origem </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.origem}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="data">
+        <mat-header-cell *matHeaderCellDef> data </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.data | date:'dd/MM/yyyy'}} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="valorTotal">
+        <mat-header-cell *matHeaderCellDef> total </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.valorTotal | currency:'R$ '}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="isMensal">
+        <mat-header-cell *matHeaderCellDef> Fixo? </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.isMensal | simNao}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="FormaPagamento">
+        <mat-header-cell *matHeaderCellDef> Forma de pagamento </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.formaPagamento}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  <app-nova-conta></app-nova-conta>
+</div>

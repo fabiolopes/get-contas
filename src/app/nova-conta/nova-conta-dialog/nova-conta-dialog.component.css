@@ -1,0 +1,28 @@
+.form-flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0px 2px 8px -3px rgba(0,0,0,0.24);
+}
+
+.form-flex .form-flex-item {
+  flex: 0 auto;
+		/*flex-grow: 0;Ocupa o resto da largura da div*/
+		/*flex-shrink: 1;/*encolhe a nossa div*/
+		/*flex-basis: 65px;/*define um width de cada elemento caso não tenh*/
+		max-width: 200px;
+		margin: 10px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-row > button {
+  font-size: 10px;
+}
+
