@@ -1,0 +1,28 @@
+<h3>Novo Item</h3>
+<form class="form-flex">
+  <div class="form-flex-item">
+    <mat-form-field>
+      <input matInput placeholder="Nome do item" [(ngModel)]="item.nome" name="nome" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Descrição do item" [(ngModel)]="item.desc" name="desc" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Categoria" [(ngModel)]="item.categoria" name="categoria" />
+    </mat-form-field>
+    <div class="button-row">
+      <button mat-fab color="primary">
+        <mat-icon class="done" (click)="guardarItem()" >done</mat-icon>
+      </button>
+    </div>
+  </div>
+<div class="form-flex-item">
+  <mat-form-field>
+    <input matInput placeholder="Valor unitário" [(ngModel)]="item.valorUnitario" currencyMask name="valorUnitario" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Quantidade" [(ngModel)]="item.qtd" name="Quantidade" />
+  </mat-form-field>
+  <mat-checkbox matInput class="checkbox-central" [(ngModel)]="item.isNecessario" name="isNecessario">Item necessário?</mat-checkbox>
+</div>
+</form>
