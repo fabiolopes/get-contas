@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Conta } from '../model/conta';
 import { ContaService } from '../services/conta.service';
-import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-conta',

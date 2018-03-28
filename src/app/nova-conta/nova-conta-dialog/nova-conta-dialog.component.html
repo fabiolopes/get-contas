@@ -1,3 +1,4 @@
+<h3>Nova Conta</h3>
 <form class="form-flex">
   <div class="form-flex-item">
     <mat-form-field>
@@ -12,7 +13,7 @@
     <button mat-fab color="primary">
       <mat-icon class="done" (click)="salvarConta()" >done</mat-icon>
     </button>
-    <button class="btn-plus" mat-raised-button color="basic"><mat-icon class="icon-add">add</mat-icon>Adicionar item</button>
+    <button class="btn-plus" mat-raised-button color="basic" (click)="openItemDialog()"><mat-icon class="icon-add">add</mat-icon>Adicionar item</button>
   </div>
 </div>
 <div class="form-flex-item">
@@ -29,3 +30,4 @@
   <mat-checkbox matInput class="checkbox-central" [(ngModel)]="conta.isMensal" name="isMensal">Conta Fixa?</mat-checkbox>
 </div>
 </form>
+<app-novo-item-dialog style="display:none"  (update)="itemUpdate($event)"></app-novo-item-dialog>

@@ -6,5 +6,9 @@ export class Conta {
   valorTotal: number;
   isMensal: boolean;
   formaPagamento: string;
-  itens: Item[];
+  itens: Array<Item>;
+
+  constructor(){
+    this.itens = new Array<Item>();
+  }
 }
