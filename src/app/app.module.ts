@@ -15,7 +15,8 @@ import { MatTableModule, MatDialogModule, MatInputModule, MatDatepickerModule, M
    MatSelectModule,
    MatSnackBarModule,
    MatSort,
-   MatSortModule} from '@angular/material';
+   MatSortModule,
+   MatPaginatorModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { ContaComponent } from './conta/conta.component';
 import { NovaContaDialogComponent } from './nova-conta/nova-conta-dialog/nova-conta-dialog.component';
@@ -51,6 +52,7 @@ import { DataService } from './services/data.service';
     MatSelectModule,
     MatSnackBarModule,
     MatSortModule,
+    MatPaginatorModule,
     CurrencyMaskModule,
     FormsModule
   ],

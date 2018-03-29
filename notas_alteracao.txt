@@ -1,1 +1,1 @@
-Inserção da ordenação da tabela, inserindo MatSortModule no app, implementando a lógica no modulo conta
+Inserção da paginação na tabela, através do mappaginator
