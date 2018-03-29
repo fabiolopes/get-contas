@@ -13,7 +13,9 @@ import { MatTableModule, MatDialogModule, MatInputModule, MatDatepickerModule, M
    MAT_DATE_LOCALE,
    MatCheckboxModule,
    MatSelectModule,
-   MatSnackBarModule} from '@angular/material';
+   MatSnackBarModule,
+   MatSort,
+   MatSortModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { ContaComponent } from './conta/conta.component';
 import { NovaContaDialogComponent } from './nova-conta/nova-conta-dialog/nova-conta-dialog.component';
@@ -32,7 +34,7 @@ import { DataService } from './services/data.service';
     SimNaoPipe,
     ContaComponent,
     NovaContaDialogComponent,
-    NovoItemDialogComponent,
+    NovoItemDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { DataService } from './services/data.service';
     MatIconModule,
     MatSelectModule,
     MatSnackBarModule,
+    MatSortModule,
     CurrencyMaskModule,
     FormsModule
   ],

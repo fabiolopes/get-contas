@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Conta } from '../model/conta';
 import { ContaService } from '../services/conta.service';
+import { MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-conta',
@@ -11,9 +12,17 @@ export class ContaComponent implements OnInit {
 
   displayedColumns = ['origem', 'data', 'valorTotal', 'isMensal', 'FormaPagamento'];
   contas;
+  dataSource;
+  @ViewChild(MatSort) matSort: MatSort;
 
   constructor(contaService: ContaService) {
-    this.contas = contaService.getContas();
+    this.contas = contaService.getContas().subscribe(contasRecuperadas => {
+      if (!contasRecuperadas) {
+        return;
+      }
+      this.dataSource = new MatTableDataSource(contasRecuperadas);
+      this.dataSource.sort = this.matSort;
+    });
   }
 
   ngOnInit() {
