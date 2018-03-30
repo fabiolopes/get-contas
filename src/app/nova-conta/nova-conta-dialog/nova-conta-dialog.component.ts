@@ -48,7 +48,7 @@ export class NovaContaDialogComponent implements OnInit {
   }
 
   salvarConta() {
-    if(this.conta.itens.length < 1) {
+    if (this.conta.itens.length < 1) {
       this.openSnackBar('Insira um item na conta', '');
     }else {
       const contaSalva = this.contaService.salvarConta(this.conta);

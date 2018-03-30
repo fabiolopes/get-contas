@@ -27,6 +27,7 @@ import { AppConstants } from './constants/app.constants';
 import {CustomCurrencyMaskConfig } from './constants/app.custom.currency.mask.config';
 import { NovoItemDialogComponent } from './nova-conta/novo-item-dialog/novo-item-dialog.component';
 import { DataService } from './services/data.service';
+import { FiltroPeriodoComponent } from './conta/filtros/filtro-periodo/filtro-periodo.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DataService } from './services/data.service';
     SimNaoPipe,
     ContaComponent,
     NovaContaDialogComponent,
-    NovoItemDialogComponent
+    NovoItemDialogComponent,
+    FiltroPeriodoComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +66,6 @@ import { DataService } from './services/data.service';
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NovaContaDialogComponent, NovoItemDialogComponent]
+  entryComponents: [NovaContaDialogComponent, NovoItemDialogComponent, FiltroPeriodoComponent]
 })
 export class AppModule { }

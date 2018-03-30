@@ -1,1 +1,1 @@
-Inserção da paginação na tabela, através do mappaginator
+Criação de componente de modal de filtro de conta por período. Botão acionador do modal no contaComponent. Inserção de função de dados do filtro no dataservice. Adaptação do método de acesso a contas por com ou sem filtro

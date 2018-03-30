@@ -1,0 +1,20 @@
+<h3>Selecione o período desejado</h3>
+<form class="form-flex">
+  <div class="form-flex-item">
+    <mat-form-field>
+      <input matInput [matDatepicker]="pickerInicio" placeholder="Data início" [(ngModel)]="filtroData.inicio" name="dataInicio"/>
+      <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+      <mat-datepicker #pickerInicio></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="pickerFim" placeholder="Data fim" [(ngModel)]="filtroData.fim" name="dataFim"/>
+    <mat-datepicker-toggle matSuffix [for]="pickerFim"></mat-datepicker-toggle>
+    <mat-datepicker #pickerFim></mat-datepicker>
+  </mat-form-field>
+    <div class="button-row">
+      <button mat-fab color="primary">
+        <mat-icon class="done" (click)="aplicarFiltroData()">done</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>
