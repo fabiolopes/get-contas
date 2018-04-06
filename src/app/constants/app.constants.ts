@@ -5,4 +5,17 @@ import { CurrencyMaskConfig } from 'ng2-currency-mask/src/currency-mask.config';
 export class AppConstants {
   public URL = 'http://localhost:8080/conta';
 
+  public CATEGORIAS = [
+    'Refeição',
+    'Mercado - Higiene',
+    'Mercado',
+    'Lazer',
+    'Roupas',
+    'Cuidados pessoais',
+    'Gastos do lar',
+    'Transporte',
+    'Educação',
+    'Outros'
+];
+
 }

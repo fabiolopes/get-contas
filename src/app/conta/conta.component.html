@@ -36,11 +36,17 @@
         <mat-cell *matCellDef="let element"> {{element.formaPagamento}} </mat-cell>
       </ng-container>
 
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Excluir">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let element"><a href="#" title="Excluir conta id:{{element.id}}"><mat-icon class="icon-clear" color="warn" (click)="excluirConta(element)">clear</mat-icon></a></mat-cell>
+      </ng-container>
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <div>
-      <button mat-raised-button color="primary" (click)="openFiltroDataDialog()"><mat-icon class="icon-add">add</mat-icon>Buscar por outro período</button>
+    <div class="btn-conta-container">
+      <mat-checkbox matInput class="checkbox-central" (change)="aplicarFiltroData($event)">Buscar outro período</mat-checkbox>
       <button mat-raised-button color="primary"><mat-icon class="icon-add">add</mat-icon>Filtrar por categorias</button>
       <button mat-raised-button color="primary"><mat-icon class="icon-add">add</mat-icon>Filtro por conta fixa</button>
     </div>

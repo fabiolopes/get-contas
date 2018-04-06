@@ -26,6 +26,11 @@ export class ContaService {
       Observable.throw(error.json().error() || 'Server error')).subscribe(res => console.log(res.json()));
     }
 
+    excluirConta (conta: Conta) {
+      return this.http.delete(this.appConst.URL + '/' + conta.id).catch((error: any) =>
+      Observable.throw(error.json().error() || 'Server error')).subscribe(res => console.log(res.json()));
+    }
+
   }
 
 

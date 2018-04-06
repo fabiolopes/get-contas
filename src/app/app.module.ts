@@ -55,6 +55,7 @@ import { FiltroPeriodoComponent } from './conta/filtros/filtro-periodo/filtro-pe
     MatSnackBarModule,
     MatSortModule,
     MatPaginatorModule,
+    MatSelectModule,
     CurrencyMaskModule,
     FormsModule
   ],

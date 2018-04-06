@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, Input, Output, EventEmitter } from '@angular
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Item } from '../../model/item';
 import { DataService } from '../../services/data.service';
+import { AppConstants } from '../../constants/app.constants';
 
 @Component({
   selector: 'app-novo-item-dialog',
@@ -11,9 +12,11 @@ import { DataService } from '../../services/data.service';
 export class NovoItemDialogComponent implements OnInit {
 
   item = new Item();
-  constructor(public dialogRef: MatDialogRef<NovoItemDialogComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<NovoItemDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dataService: DataService) { }
+    private dataService: DataService,
+    public constant: AppConstants) { }
 
   onNoClick(): void {
     this.dialogRef.close();

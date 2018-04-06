@@ -3,7 +3,7 @@ import { FiltroPeriodoComponent } from './filtros/filtro-periodo/filtro-periodo.
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Conta } from '../model/conta';
 import { ContaService } from '../services/conta.service';
-import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator, MatDialog, MatRadioChange } from '@angular/material';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -13,14 +13,17 @@ import { DataService } from '../services/data.service';
 })
 export class ContaComponent implements OnInit {
 
-  displayedColumns = ['origem', 'data', 'valorTotal', 'isMensal', 'FormaPagamento'];
+  displayedColumns = ['origem', 'data', 'valorTotal', 'isMensal', 'FormaPagamento', 'Excluir'];
   contas;
   dataSource;
   filtroData: FiltroData;
   @ViewChild(MatSort) matSort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private contaService: ContaService, public dialog: MatDialog, private dataService: DataService) {
+  constructor(
+    private contaService: ContaService,
+    public dialog: MatDialog,
+    private dataService: DataService) {
     this.getContas(null);
   }
 
@@ -41,6 +44,12 @@ export class ContaComponent implements OnInit {
     });
   }
 
+  excluirConta(conta: Conta) {
+    this.contaService.excluirConta(conta);
+    console.log('Excluido com sucesso');
+    window.location.reload();
+  }
+
   openFiltroDataDialog() {
     const dialogRef = this.dialog.open(FiltroPeriodoComponent,
     {
@@ -54,6 +63,14 @@ export class ContaComponent implements OnInit {
         this.filtroData = null;
       }
     });
+  }
+
+  aplicarFiltroData(event: MatRadioChange) {
+    if (event.source.checked) {
+      this.openFiltroDataDialog();
+    }else {
+      this.getContas(null);
+    }
   }
 
   ngOnInit() {

@@ -20,6 +20,7 @@ export class FiltroPeriodoComponent implements OnInit {
   aplicarFiltroData() {
     this.dataService.changeFiltroData(this.filtroData);
     this.filtroData = new FiltroData();
+    this.dialog.closeAll();
   }
 
   ngOnInit() {
