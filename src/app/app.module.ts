@@ -1,3 +1,4 @@
+import { ItemService } from './services/item.service';
 import { MatButtonModule } from '@angular/material/button';
 import { ContaService } from './services/conta.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +29,7 @@ import {CustomCurrencyMaskConfig } from './constants/app.custom.currency.mask.co
 import { NovoItemDialogComponent } from './nova-conta/novo-item-dialog/novo-item-dialog.component';
 import { DataService } from './services/data.service';
 import { FiltroPeriodoComponent } from './conta/filtros/filtro-periodo/filtro-periodo.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { FiltroPeriodoComponent } from './conta/filtros/filtro-periodo/filtro-pe
     ContaComponent,
     NovaContaDialogComponent,
     NovoItemDialogComponent,
-    FiltroPeriodoComponent
+    FiltroPeriodoComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
@@ -63,10 +66,11 @@ import { FiltroPeriodoComponent } from './conta/filtros/filtro-periodo/filtro-pe
     ContaService,
     DataService,
     AppConstants,
+    ItemService,
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NovaContaDialogComponent, NovoItemDialogComponent, FiltroPeriodoComponent]
+  entryComponents: [NovaContaDialogComponent, NovoItemDialogComponent, FiltroPeriodoComponent, ItemComponent]
 })
 export class AppModule { }

@@ -2,7 +2,7 @@
 <form class="form-flex">
   <div class="form-flex-item">
     <mat-form-field>
-       <input matInput placeholder="Origem" [(ngModel)]="conta.origem" name="origem" />
+       <input matInput placeholder="Origem" [(ngModel)]="conta.origem" name="origem" required />
     </mat-form-field>
   <mat-form-field>
     <input matInput [matDatepicker]="picker" placeholder="Data da compra" [(ngModel)]="conta.data" name="data"/>
@@ -18,7 +18,7 @@
 </div>
 <div class="form-flex-item">
   <mat-form-field>
-    <input matInput placeholder="Valor total" [(ngModel)]="conta.valorTotal" currencyMask name="valorTotal" />
+    <input matInput placeholder="Valor total" [(ngModel)]="conta.valorTotal" currencyMask name="valorTotal" required/>
   </mat-form-field>
   <mat-form-field>
     <mat-select placeholder="Forma de pagamento" [(ngModel)]="conta.formaPagamento" name="formaPagamento">

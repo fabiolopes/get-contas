@@ -1,1 +1,2 @@
-Criação de componente de modal de filtro de conta por período. Botão acionador do modal no contaComponent. Inserção de função de dados do filtro no dataservice. Adaptação do método de acesso a contas por com ou sem filtro
+Criação de componente para apresentação dos itens após clicar em uma conta. Criação do itemservice para chamar o resta que preenche o componente de item criado.
+Fix do bug de, ao fechar o filtro por periodo em contas, desmarcar o checkbox de filtro.

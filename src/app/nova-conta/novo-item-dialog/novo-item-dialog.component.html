@@ -2,13 +2,13 @@
 <form class="form-flex">
   <div class="form-flex-item">
     <mat-form-field>
-      <input matInput placeholder="Nome do item" [(ngModel)]="item.nome" name="nome" />
+      <input matInput placeholder="Nome do item" [(ngModel)]="item.nome" name="nome" required />
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Descrição do item" [(ngModel)]="item.desc" name="desc" />
     </mat-form-field>
     <mat-form-field>
-      <mat-select placeholder="Categoria" [(ngModel)]="item.categoria" name="categoria">
+      <mat-select placeholder="Categoria" [(ngModel)]="item.categoria" name="categoria" required>
         <mat-option *ngFor="let categoria of constant.CATEGORIAS" value="categoria">
           {{ categoria }}
         </mat-option>
@@ -22,10 +22,10 @@
   </div>
 <div class="form-flex-item">
   <mat-form-field>
-    <input matInput placeholder="Valor unitário" [(ngModel)]="item.valorUnitario" currencyMask name="valorUnitario" />
+    <input matInput placeholder="Valor unitário" [(ngModel)]="item.valorUnitario" currencyMask name="valorUnitario" required />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Quantidade" [(ngModel)]="item.qtd" name="Quantidade" />
+    <input matInput placeholder="Quantidade" [(ngModel)]="item.qtd" name="Quantidade" required/>
   </mat-form-field>
   <mat-checkbox matInput class="checkbox-central" [(ngModel)]="item.isNecessario" name="isNecessario">Item necessário?</mat-checkbox>
 </div>

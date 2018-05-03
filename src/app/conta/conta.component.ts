@@ -1,10 +1,11 @@
 import { FiltroData } from './../model/filtro-data';
 import { FiltroPeriodoComponent } from './filtros/filtro-periodo/filtro-periodo.component';
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { Conta } from '../model/conta';
 import { ContaService } from '../services/conta.service';
 import { MatTableDataSource, MatSort, MatPaginator, MatDialog, MatRadioChange } from '@angular/material';
 import { DataService } from '../services/data.service';
+import { ItemComponent } from '../item/item.component';
 
 @Component({
   selector: 'app-conta',
@@ -13,12 +14,13 @@ import { DataService } from '../services/data.service';
 })
 export class ContaComponent implements OnInit {
 
-  displayedColumns = ['origem', 'data', 'valorTotal', 'isMensal', 'FormaPagamento', 'Excluir'];
+  displayedColumns = ['origem', 'data', 'valorTotal', 'isMensal', 'FormaPagamento', 'Excluir', 'Visualizar'];
   contas;
   dataSource;
   filtroData: FiltroData;
   @ViewChild(MatSort) matSort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild('checkBuscaPeriodo') private checkBoBuscaPeriodo;
 
   constructor(
     private contaService: ContaService,
@@ -50,6 +52,14 @@ export class ContaComponent implements OnInit {
     window.location.reload();
   }
 
+  showDialogItensConta(conta: Conta) {
+    const dialogRef = this.dialog.open(ItemComponent,
+    {
+      width: 'auto',
+      data: conta
+    });
+  }
+
   openFiltroDataDialog() {
     const dialogRef = this.dialog.open(FiltroPeriodoComponent,
     {
@@ -58,6 +68,7 @@ export class ContaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.checkBoBuscaPeriodo.checked = false;
       if (this.filtroData !== null) {
         this.getContas('data');
         this.filtroData = null;

@@ -12,7 +12,7 @@ export class ContaService {
   }
 
   getContas(filtro: FiltroData): Observable<Conta[]> {
-    let currentUrl = this.appConst.URL;
+    let currentUrl = this.appConst.URL_CONTA;
     if (filtro != null) {
       currentUrl = currentUrl + '/' + filtro.inicio + '/' + filtro.fim;
     }
@@ -22,12 +22,12 @@ export class ContaService {
   }
 
     salvarConta (conta: Conta) {
-      return this.http.post(this.appConst.URL, conta).catch((error: any) =>
+      return this.http.post(this.appConst.URL_CONTA, conta).catch((error: any) =>
       Observable.throw(error.json().error() || 'Server error')).subscribe(res => console.log(res.json()));
     }
 
     excluirConta (conta: Conta) {
-      return this.http.delete(this.appConst.URL + '/' + conta.id).catch((error: any) =>
+      return this.http.delete(this.appConst.URL_CONTA + '/' + conta.id).catch((error: any) =>
       Observable.throw(error.json().error() || 'Server error')).subscribe(res => console.log(res.json()));
     }
 
